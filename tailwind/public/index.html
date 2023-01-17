@@ -4,10 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap" rel="stylesheet">
     <title>Belajar | Tailwind</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            border: 1px solid blue;
+        }
+    </style>
+
 </head>
 <body>
-    <h1 class="text-red-500">Hello World!</h1>
+    <h1 class="text-4xl text-center my-10 font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-black">Hello World!</h1>
+
+    <section class="mb-10">
+        <h2>Spacing</h2>
+        <div class="m-13 p-10 bg-daffa text-center">
+            Margin & Padding
+        </div>
+    </section>
+
+    <section class="mb-10">
+        <h2>Sizing</h2>
+        <div class="w-32 h-32 bg-gradient-to-r from-red-600 to-white">
+            Kotak 1
+        </div>
+    </section>
+
+    <section class="mb-10 font-rowdies max-w-3xl mx-auto">
+        <h2 class="mb-4 text-4xl font-bold">Tipografi</h2>
+        <div class="mb-4 text-lg text-gray-500">
+            By Daffa Afifi.  17 Januari 2023
+        </div>
+        <p class="mb-4">
+            Lorem ipsum dolor sit amet <a href="" class="underline">consectetur</a> adipisicing elit. Atque cumque placeat inventore corrupti rerum. Esse, dolore dolorum debitis possimus incidunt similique fugit nulla repudiandae eum illo, facilis recusandae distinctio optio quod minima et ratione vitae. Nihil ea ab debitis placeat repellat, impedit neque totam officia dignissimos. Beatae suscipit fugit tenetur.
+        </p>
+        <blockquote class="mb-4 italic font-sans text-xs">
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam impedit inventore blanditiis molestias. Et dolor sed enim nam, non nemo vitae ratione neque dicta incidunt reprehenderit? Rem unde veniam omnis minima voluptatem cupiditate totam itaque atque tempore eligendi possimus voluptatum tempora molestias distinctio, voluptas numquam, sed, iusto dolorum rerum ea!"
+        </blockquote>
+        <p class="mb-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto nemo minus ex mollitia consectetur optio. Rerum atque officiis ad accusamus, maiores odio a recusandae distinctio debitis enim dolorem doloribus quo saepe, officia corrupti sapiente libero vero optio quidem sit minus praesentium. Odio aliquid saepe harum dignissimos quaerat quasi magnam dolor.
+        </p>
+    </section>
 </body>
 </html>
