@@ -12,6 +12,17 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\TextInput;
+use Closure;
+use Illuminate\Support\Str;
+use Filament\Forms\Components\Card;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\BooleanColumn;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
 class PostResource extends Resource
 {
@@ -23,7 +34,21 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Card::make()
+                    ->schema([
+                        Select::make('category_id')
+                            ->relationship('category', 'name'),
+                        TextInput::make('title')
+                            ->reactive()
+                            ->afterStateUpdated(function (Closure $set, $state) {
+                                $set('slug', Str::slug($state));
+                            })->required(),
+                        TextInput::make('slug')->required(),
+                        SpatieMediaLibraryFileUpload::make('thumbnail')->collection('posts'),
+                        RichEditor::make('content'),
+                        Toggle::make('is_published')
+                    ])
+                    ->columns(1),
             ]);
     }
 
@@ -31,7 +56,11 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('id')->sortable(),
+                TextColumn::make('title')->limit(50)->sortable(),
+                TextColumn::make('slug')->limit(50)->sortable(),
+                BooleanColumn::make('is_published'),
+                SpatieMediaLibraryImageColumn::make('thumbnail')->collection('posts'),
             ])
             ->filters([
                 //
