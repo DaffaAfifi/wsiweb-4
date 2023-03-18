@@ -15,7 +15,7 @@ use App\Http\Controllers\StudentController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Car::all();
 });
 
 Route::get('students', [StudentController::class, 'index']);
