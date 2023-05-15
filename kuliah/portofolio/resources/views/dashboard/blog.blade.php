@@ -3,59 +3,77 @@
 @section('title', 'Blog')
 
 @section('content')
-    <h1 class="text-body text-center mt-3">Daffa Shelby's Blogs</h1>
-        <div class="col-sm-10 mx-auto my-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Peaky Blinders History</h5>
-                    <p class="text-truncate card-text">netus et malesuada fames ac turpis egestas integer eget aliquet nibh praesent tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque</p>
-                    <a href="#" class="btn btn-sm btn-dark">Read more</a>
-                </div>  
-            </div>
+    <h1 class="text-body text-center mt-5 mb-3">Daffa Shelby's Blogs</h1>
+    @if(Session::has('status'))
+        <div class="alert alert-success mt-3 font-weight-bold" style="margin-left: 112px; margin-right: 112px;" role="alert">
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            {{Session::get('message')}}
         </div>
-        <div class="col-sm-10 mx-auto my-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Angels and Demons</h5>
-                    <p class="text-truncate card-text">netus et malesuada fames ac turpis egestas integer eget aliquet nibh praesent tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque</p>
-                    <a href="#" class="btn btn-sm btn-dark">Read more</a>
-                </div>  
-            </div>
+    @endif
+    <div class="col-sm-10 mx-auto mb-3" style="flex:1;">
+        <div class="d-flex justify-content-end mb-3">
+            <a class="btn btn-primary btn-sm me-1" href="/blog-add">Add</a>
+            <form action="/blog-delete" method="POST">
+            @csrf
+            <button class="btn btn-danger btn-sm" type="submit">Delete</button>
         </div>
-        <div class="col-sm-10 mx-auto my-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Black eye club secrets</h5>
-                    <p class="text-truncate card-text">netus et malesuada fames ac turpis egestas integer eget aliquet nibh praesent tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque</p>
-                    <a href="#" class="btn btn-sm btn-dark">Read more</a>
-                </div>  
-            </div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">No</th>
+                <th scope="col">Image</th>
+                <th scope="col">Title</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+                <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            @foreach ($blogList as $item)
+                <tbody>
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>
+                            @if ($item->image != null)
+                                <img src="{{ asset('storage/' . $item->image) }}" width="50px" height="50px" alt="{{ $item->title }}">
+                            @else
+                                <img src="{{ asset('images/lospollos.jpg') }}" width="50px" height="50px" alt="{{ $item->title }}">
+                            @endif    
+                        </td>
+                        <td>{{ $item->title }}</td>
+                        <td>
+                            @if ($item->status === 'active')
+                                <p style="color: green; font-weight:bold">Active</p>
+                            @else
+                                <p style="color: red; font-weight:bold">Non-Active</p>
+                            @endif
+                        </td>
+                        <td>
+                            <a href="/blog-detail/{{$item->id}}" class="btn btn-outline-secondary btn-sm mx-1 my-2">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                            <a href="/blog-update/{{$item->id}}" class="btn btn-outline-secondary btn-sm mx-1 my-2">
+                                <i class="fa-solid fa-pencil"></i>
+                            </a>
+                            @if ($item->status === 'active')
+                                <a href="/blog-non-active/{{$item->id}}" class="btn btn-outline-secondary btn-sm mx-1 my-2">
+                                    <i class="fa-solid fa-x"></i>
+                                </a>
+                            @else
+                                <a href="/blog-active/{{$item->id}}" class="btn btn-outline-secondary btn-sm mx-1 my-2">
+                                    <i class="fa-solid fa-check"></i>
+                                </a>
+                            @endif
+                        </td>
+                        <td class="text-center">
+                            <input type="checkbox" name="ids[{{$item->id}}]" id="delete" value="{{$item->id}}">
+                        </td>
+                    </tr>
+                </tbody>
+            @endforeach
+        </table>
+        <div class="my-4 d-flex justify-content-center">
+            {!! $blogList->links('pagination::bootstrap-4') !!}
         </div>
-        <div class="col-sm-10 mx-auto my-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Jehovah Sanctus Unus</h5>
-                    <p class="text-truncate card-text">netus et malesuada fames ac turpis egestas integer eget aliquet nibh praesent tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque</p>
-                    <a href="#" class="btn btn-sm btn-dark">Read more</a>
-                </div>  
-            </div>
-        </div>
-        <div class="col-sm-10 mx-auto my-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">The Kings return</h5>
-                    <p class="text-truncate card-text">netus et malesuada fames ac turpis egestas integer eget aliquet nibh praesent tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque</p>
-                    <a href="#" class="btn btn-sm btn-dark">Read more</a>
-                </div>  
-            </div>
-        </div>
-        <div class="col-sm-10 mx-auto my-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Asmalibrasi</h5>
-                    <p class="text-truncate card-text">netus et malesuada fames ac turpis egestas integer eget aliquet nibh praesent tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque</p>
-                    <a href="#" class="btn btn-sm btn-dark">Read more</a>
-                </div>  
-            </div>
-        </div>
+        </form>
+    </div>
 @endsection
